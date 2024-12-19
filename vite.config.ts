@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import Icons from 'unplugin-icons/vite';
-import { resolve } from 'path';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import Icons from 'unplugin-icons/vite'
+import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [
@@ -10,9 +10,9 @@ export default defineConfig({
       compiler: 'jsx',
       jsx: 'react',
       autoInstall: true,
-      iconCustomizer(collection, icon, props) {
-        props.width = '1em';
-        props.height = '1em';
+      iconCustomizer(_collection, _icon, props) {
+        props.width = '1em'
+        props.height = '1em'
       },
     }),
   ],
@@ -21,4 +21,4 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
-});
+})

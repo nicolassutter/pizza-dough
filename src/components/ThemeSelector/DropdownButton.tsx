@@ -1,12 +1,12 @@
-import React from 'react';
-import ChevronDownIcon from '~icons/carbon/chevron-down';
-import { ThemeIcon } from './ThemeIcon';
-import type { Theme } from '@/types/theme';
+import React from 'react'
+import ChevronDownIcon from '~icons/carbon/chevron-down'
+import { ThemeIcon } from './ThemeIcon'
+import type { Theme } from '@/types/theme'
 
 interface DropdownButtonProps {
-  theme: Theme;
-  isOpen: boolean;
-  onClick: () => void;
+  theme: Theme
+  isOpen: boolean
+  onClick: () => void
 }
 
 export const DropdownButton: React.FC<DropdownButtonProps> = ({
@@ -18,27 +18,27 @@ export const DropdownButton: React.FC<DropdownButtonProps> = ({
     light: 'Light',
     dark: 'Dark',
     system: 'System',
-  };
+  }
 
   return (
     <button
       onClick={onClick}
-      className="flex items-center gap-2 px-4 py-2 rounded-lg 
+      className='flex items-center gap-2 px-4 py-2 rounded-lg 
                 bg-cyber-background-light/10 dark:bg-cyber-background-dark/10 
                 border-2 border-cyber-accent hover:shadow-cyber
-                transition-all duration-200"
+                transition-all duration-200'
       aria-expanded={isOpen}
-      aria-haspopup="listbox"
-      aria-label="Select theme"
+      aria-haspopup='listbox'
+      aria-label='Select theme'
     >
       <ThemeIcon theme={theme} />
-      <span className="font-cyber text-cyber-text-light dark:text-cyber-text-dark">
+      <span className='font-cyber text-cyber-text-light dark:text-cyber-text-dark'>
         {labels[theme]}
       </span>
-      <ChevronDownIcon 
+      <ChevronDownIcon
         className={`w-4 h-4 text-cyber-accent transition-transform duration-200
-                   ${isOpen ? 'rotate-180' : 'rotate-0'}`} 
+                   ${isOpen ? 'rotate-180' : 'rotate-0'}`}
       />
     </button>
-  );
-};
+  )
+}

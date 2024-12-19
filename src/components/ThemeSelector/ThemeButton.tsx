@@ -1,12 +1,12 @@
-import React from 'react';
-import type { Theme } from '@/types/theme';
+import React from 'react'
+import type { Theme } from '@/types/theme'
 
 interface ThemeButtonProps {
-  theme: Theme;
-  currentTheme: Theme;
-  onClick: () => void;
-  icon: React.ReactNode;
-  label: string;
+  theme: Theme
+  currentTheme: Theme
+  onClick: () => void
+  icon: React.ReactNode
+  label: string
 }
 
 export const ThemeButton: React.FC<ThemeButtonProps> = ({
@@ -28,5 +28,5 @@ export const ThemeButton: React.FC<ThemeButtonProps> = ({
     >
       {icon}
     </button>
-  );
-};
+  )
+}
