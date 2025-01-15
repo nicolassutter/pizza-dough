@@ -1,4 +1,3 @@
-import React from 'react'
 import { DoughCalculator } from '@/components/DoughCalculator'
 import { ThemeSelector } from '@/components/ThemeSelector/index'
 

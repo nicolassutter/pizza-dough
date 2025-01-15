@@ -47,13 +47,18 @@ export const DoughCalculator: React.FC = () => {
         <h2 className='text-xl font-cyber font-bold mb-4 text-cyber-accent'>
           Required Ingredients
         </h2>
+        <p className='text-cyber-text-light dark:text-cyber-text-dark my-4 font-cyber italic text-sm'>
+          Only use yeast or fresh yeast, not both
+        </p>
         <div className='space-y-2 font-cyber'>
           {Object.entries(ingredients).map(([ingredient, amount]) => (
             <p
               key={ingredient}
               className='text-cyber-text-light dark:text-cyber-text-dark flex justify-between'
             >
-              <span className='capitalize'>{ingredient}:</span>
+              <span className='capitalize'>
+                {ingredient.split(/(?=[A-Z])/).join(' ') ?? ingredient}:
+              </span>
               <span className='font-bold text-cyber-accent'>{amount}g</span>
             </p>
           ))}

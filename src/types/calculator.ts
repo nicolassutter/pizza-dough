@@ -9,4 +9,5 @@ export interface Ingredients {
   water: number
   salt: number
   yeast: number
+  freshYeast: number
 }

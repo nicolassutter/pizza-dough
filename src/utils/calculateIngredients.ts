@@ -4,24 +4,46 @@ export function calculateIngredients(inputs: DoughInputs): Ingredients {
   const { hydration, doughWeight, numberOfDoughs } = inputs
   const totalWeight = doughWeight * numberOfDoughs
 
-  // Calculate flour based on hydration percentage
-  const flourPercentage = 100
-  const waterPercentage = hydration
-  const saltPercentage = 2.5
-  const yeastPercentage = 0.4
-
-  const totalPercentage =
-    flourPercentage + waterPercentage + saltPercentage + yeastPercentage
-
-  const flour = (totalWeight * flourPercentage) / totalPercentage
-  const water = (totalWeight * waterPercentage) / totalPercentage
-  const salt = (totalWeight * saltPercentage) / totalPercentage
-  const yeast = (totalWeight * yeastPercentage) / totalPercentage
-
-  return {
-    flour: Math.round(flour),
-    water: Math.round(water),
-    salt: Math.round(salt),
-    yeast: Math.round(yeast),
+  const data: Record<
+    keyof Ingredients,
+    {
+      percentage: number
+      optional?: boolean
+    }
+  > = {
+    flour: {
+      percentage: 100,
+    },
+    water: {
+      percentage: hydration,
+    },
+    salt: {
+      percentage: 2.5,
+    },
+    yeast: {
+      percentage: 0.4,
+      optional: true,
+    },
+    freshYeast: {
+      percentage: 1.2,
+      optional: true,
+    },
   }
+
+  // we do not add yeast to the total percentage because it is not important in the final dough weight
+  const totalPercentage = Object.values(data).reduce(
+    (acc, { percentage, optional }) => (optional ? acc : acc + percentage),
+    0,
+  )
+
+  const finalData = Object.fromEntries(
+    Object.entries(data).map(([key, { percentage }]) => {
+      return [
+        key,
+        Math.round((totalWeight * percentage) / totalPercentage),
+      ] as const
+    }),
+  ) as unknown as Ingredients
+
+  return finalData
 }
