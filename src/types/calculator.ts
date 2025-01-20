@@ -1,4 +1,4 @@
-export interface DoughInputs {
+export type DoughInputs = {
   hydration: number
   doughWeight: number
   numberOfDoughs: number
