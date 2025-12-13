@@ -1,6 +1,14 @@
-import { DoughInputs, Ingredients } from '../types/calculator'
+import type { DoughInputs, Ingredients } from '~/types/calculator'
 
-export function calculateIngredients(inputs: DoughInputs): Ingredients {
+const DEFAULT_INPUTS: DoughInputs = {
+  hydration: 67,
+  doughWeight: 290,
+  numberOfDoughs: 4,
+}
+
+const KEY = 'dough-inputs'
+
+function calculateIngredients(inputs: DoughInputs): Ingredients {
   const { hydration, doughWeight, numberOfDoughs } = inputs
   const totalWeight = doughWeight * numberOfDoughs
 
@@ -46,4 +54,36 @@ export function calculateIngredients(inputs: DoughInputs): Ingredients {
   ) as unknown as Ingredients
 
   return finalData
+}
+
+
+export function useDoughCalculator() {
+  const inputs = useState<DoughInputs>(KEY, () => {
+    if (import.meta.client) {
+      const stored = localStorage.getItem(KEY)
+      if (stored) {
+        return JSON.parse(stored)
+      }
+    }
+    return DEFAULT_INPUTS
+  })
+
+  const ingredients = computed<Ingredients>(() =>
+    calculateIngredients(inputs.value),
+  )
+
+  watch(
+    inputs,
+    (newInputs) => {
+      if (import.meta.client) {
+        localStorage.setItem(KEY, JSON.stringify(newInputs))
+      }
+    },
+    { deep: true },
+  )
+
+  return {
+    inputs,
+    ingredients,
+  }
 }

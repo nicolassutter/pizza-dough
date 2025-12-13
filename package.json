@@ -1,46 +1,26 @@
 {
-  "name": "cyberpunk-pizza-calculator",
+  "name": "nuxt-app",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "build": "nuxt generate",
+    "dev": "nuxt dev",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@ark-ui/react": "^4.4.4",
-    "@svgr/core": "^8.1.0",
-    "@svgr/plugin-jsx": "^8.1.0",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwind-merge": "^2.2.1"
+    "@nuxt/ui": "^4.2.1",
+    "@vite-pwa/nuxt": "1.1.0",
+    "nuxt": "^4.2.2"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.191",
-    "@iconify/react": "^4.1.1",
-    "@iconify/utils": "^2.1.22",
-    "@types/node": "^20.11.24",
-    "@types/react": "^18.2.61",
-    "@types/react-dom": "^18.2.19",
-    "@typescript-eslint/eslint-plugin": "^7.1.0",
-    "@typescript-eslint/parser": "^7.1.0",
-    "@vite-pwa/assets-generator": "^0.2.6",
-    "@vitejs/plugin-react": "^4.2.1",
-    "autoprefixer": "^10.4.18",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "postcss": "^8.4.35",
-    "prettier": "^3.4.2",
-    "tailwindcss": "^3.4.1",
-    "type-fest": "^4.33.0",
-    "typescript": "^5.3.3",
-    "unplugin-icons": "^0.18.5",
-    "vite": "^5.1.4",
-    "vite-plugin-pwa": "^0.21.1"
+    "@iconify-json/carbon": "^1.2.15",
+    "@nuxt/eslint": "^1.12.1",
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.1.5",
+    "prettier": "^3.7.4"
   }
 }
