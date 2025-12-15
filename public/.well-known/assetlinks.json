@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.netlify.cyber_dough.twa",
+      "sha256_cert_fingerprints": [
+        "52:D2:88:EC:F4:12:A9:85:30:C2:EA:B8:A8:1E:57:4B:A0:AD:89:24:F0:3E:87:83:D4:C6:D1:60:2B:6F:81:C5"
+      ]
+    }
+  }
+]
