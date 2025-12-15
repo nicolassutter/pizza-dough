@@ -18,6 +18,14 @@ useSeoMeta({
   ogDescription: description,
   twitterCard: 'summary_large_image',
 })
+
+const { $pwa } = useNuxtApp()
+
+onMounted(() => {
+  if ($pwa.needRefresh) {
+    $pwa.updateServiceWorker(true)
+  }
+})
 </script>
 
 <template>

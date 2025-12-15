@@ -23,6 +23,7 @@ export default defineNuxtConfig({
   pwa: {
     includeAssets: ['pizza.svg', 'apple-touch-icon.png', 'mask-icon.svg'],
     registerWebManifestInRouteRules: true,
+    registerType: 'autoUpdate',
     manifest: {
       name: 'Cyberdough',
       display: 'standalone',
