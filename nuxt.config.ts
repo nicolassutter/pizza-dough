@@ -25,6 +25,7 @@ export default defineNuxtConfig({
     registerWebManifestInRouteRules: true,
     manifest: {
       name: 'Cyberdough',
+      display: 'standalone',
       short_name: 'Cyberdough',
       description: 'Pizza dough calculator',
       theme_color: '#ffffff',
